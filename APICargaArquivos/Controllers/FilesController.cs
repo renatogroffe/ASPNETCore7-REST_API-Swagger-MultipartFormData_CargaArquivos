@@ -16,6 +16,8 @@ public class FilesController : ControllerBase
 
     [HttpPost("upload")]
     [Consumes("multipart/form-data")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> UploadFormData([FromForm]FormData data)
     {
         var filesDirectory = Path.Combine(
